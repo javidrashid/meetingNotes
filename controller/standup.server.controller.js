@@ -6,32 +6,32 @@ exports.list = function(req, res) {
     query.sort({createdOn: 'desc'})
         .limit(12)
         .exec(function(err, results) {
-            res.render('index', {title: 'StandUp - List', notes: results});
+            res.render('index', {title: 'StandUp - List', orders: results});
         })
 }
 
 exports.filterByMember = function(req, res) {
     var query = Standup.find();
-    var filter = req.body.memberName;
+    var filter = req.body.companyName;
 
     query.sort({createdOn : 'desc'});
 
     if(filter.length > 0) {
-        query.where({memberName: filter})
+        query.where({companyName: filter})
     }
 
     query.exec(function(err, results) {
-        res.render('index', {title: 'Standup - List' , notes : results})
+        res.render('index', {title: 'Standup - List' , orders : results})
     })
 
 }
 exports.create = function(req, res) {
     var entry = new Standup({
-        memberName: req.body.memberName,
-        project:    req.body.project,
-        workToday:  req.body.workToday,
-        workYesterday: req.body.workYesterday,
-        impediment : req.body.impediment
+        companyName: req.body.companyName,
+        customerAddress:    req.body.customerAddress,
+        ordereditem:  req.body.ordereditem,
+        Price: req.body.price,
+        Currency : req.body.currency
      });
 
      entry.save(function(err, results) {
@@ -40,7 +40,7 @@ exports.create = function(req, res) {
              res.render('newnote', {title: 'Standup - New Note (error)', message: errMsg})    
          }
          else {
-             console.log('NOted Saved Succesfully...');
+             console.log('NOted Saved Succesfully...', results);
              //redirect
              res.redirect(301, '/')
          }

@@ -62,11 +62,11 @@
             <div class="col-md-12 column list-group">
                 {% for order in orders %}
                 <div class="list-group-item">
-                    <div>Order from <em><strong>{{ order.memberName }}</strong></em> on: {{ order.createdOn.toDateString() }}
-                        - for project: <strong>{{ order.project }}</strong></div>
-                    <div><strong>Work yesterday:</strong> {{ order.workYesterday }}</div>
-                    <div><strong>Work today:</strong> {{ order.workToday }}</div>
-                    <div><strong>Impediment:</strong> {{ order.impediment }}</div>
+                    <div>Order from <em><strong>{{ order.companyName }}</strong></em> on: {{ order.createdOn.toDateString() }}
+                        - for project: <strong>{{ order.customerAddress }}</strong></div>
+                    <div><strong>ordereditem</strong> {{ order.ordereditem }}</div>
+                    <div><strong>Price:</strong> {{ order.Price }}</div>
+                    <div><strong>Currency:</strong> {{ order.Currency }}</div>
                 </div>
                 {% endfor %}
             </div>

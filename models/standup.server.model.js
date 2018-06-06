@@ -18,24 +18,24 @@ var requiredStringValidator = [
     '{PATH} cannot be empty'
 ];
 var standupSchema = new Schema({
-    memberName: {type: String,
+    companyName: {type: String,
                 required: true,
                 validate: memberNameValidator },
 
-    project:    {type: String,
+    customerAddress:    {type: String,
                 required: true,
                 validate : requiredStringValidator },
 
-    workToday:  {type: String,
-                required: true,
+    ordereditem:  {type: String,
+                required: false,
                 validate : requiredStringValidator },
 
-    workYesterday: {type: String,
-                required: true,
+    Price: {type: String,
+                required: false,
                 validate : requiredStringValidator },
 
-    impediment : {type: String,
-                required: true,
+    Currency : {type: String,
+                required: false,
                 default :'none' },
                  createdOn : {type: Date, default: Date.now}
 });
