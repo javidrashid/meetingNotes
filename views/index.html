@@ -42,8 +42,7 @@
             <form action="/" method="post">
                 <div class="row clearfix">
                     <div class="col-md-4 column">
-                        <select id="memberName" name="memberName" class="form-control">
-                            <option value="">(Show All Members)</option>
+                        <select id="companyName" name="companyName" class="form-control">
                             <option value="SuperTrader">SuperTrader</option>
                             <option value="SuperTrader">SuperTrader</option>
                             <option value="MegaCorp">MegaCorp</option>
@@ -62,11 +61,12 @@
             <div class="col-md-12 column list-group">
                 {% for order in orders %}
                 <div class="list-group-item">
-                    <div>Order from <em><strong>{{ order.companyName }}</strong></em> on: {{ order.createdOn.toDateString() }}
-                        - for project: <strong>{{ order.customerAddress }}</strong></div>
-                    <div><strong>ordereditem</strong> {{ order.ordereditem }}</div>
+                    <div>Company Name {{ order.companyName }}</div>
+                    <div>Product: <strong>{{ order.customerAddress }}</strong></div>
+                    <div><strong>Orderes Item</strong> {{ order.ordereditem }}</div>
                     <div><strong>Price:</strong> {{ order.Price }}</div>
                     <div><strong>Currency:</strong> {{ order.Currency }}</div>
+                    <div><strong>Order Received On:</strong> {{ order.createdOn.toDateString() }}</div>
                 </div>
                 {% endfor %}
             </div>

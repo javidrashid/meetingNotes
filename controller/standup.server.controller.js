@@ -21,6 +21,7 @@ exports.filterByMember = function(req, res) {
     }
 
     query.exec(function(err, results) {
+        console.log('when', results);
         res.render('index', {title: 'Standup - List' , orders : results})
     })
 
