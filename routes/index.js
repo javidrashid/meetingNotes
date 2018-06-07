@@ -9,8 +9,12 @@ router.get('/', function(req, res, next) {
   return standUpCtrl.list(req, res);
 });
 
-router.post('/', function(req, res) {
+router.post('/member', function(req, res) {
   return standUpCtrl.filterByMember(req, res)
+});
+
+router.post('/address', function(req, res) {
+  return standUpCtrl.filterByCustomerAddress(req, res)
 });
 
 /*GET A NEW NOTE PAGE*/

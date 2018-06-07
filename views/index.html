@@ -39,21 +39,41 @@
 
         <div class="container">
             <!--Filter notes list by member name-->
-            <form action="/" method="post">
+            <form action="/member" method="post">
                 <div class="row clearfix">
                     <div class="col-md-4 column">
                         <select id="companyName" name="companyName" class="form-control">
+                            <option value="">Please Select</option>
                             <option value="SuperTrader">SuperTrader</option>
-                            <option value="SuperTrader">SuperTrader</option>
+                            <option value="Cheapskates">Cheapskates</option>
                             <option value="MegaCorp">MegaCorp</option>
                         </select>
                     </div>
                     <div class="col-md-8 column">
                         <!-- Button -->
-                        <button id="btnFilterNotes" name="btnFilterNotes" class="btn btn-primary" type="submit">Filter Orders...</button>
+                        <button id="btnFilterNotes" name="btnFilterNotes" class="btn btn-primary" type="submit">Filter Orders by Compnay Name</button>
                     </div>
                 </div>
             </form>
+            <form action="/address" method="post">
+            <div class="row clearfix">
+                <div class="col-md-4 column">
+                    <select id="customerAddress" name="customerAddress" class="form-control">
+                        <option value="">Please Select</option>
+                        <option value="Steindamm 80">Steindamm 80</option>
+                        <option value="Reeperbahn 153">Reeperbahn 153</option>
+                        <option value="Sternstrasse 125">Sternstrasse 125</option>
+                        <option value="Ottenser Hauptstrasse 24">Ottenser Hauptstrasse 24</option>
+                        <option value="Lagerstrasse 11">Lagerstrasse 11</option> 
+                    </select>
+                </div>
+                <div class="col-md-8 column">
+                    <!-- Button -->
+                    <button id="btnFilterNotes" name="btnFilterNotes" class="btn btn-primary" type="submit">Filter Orders by Customer Address</button>
+                </div>
+            </div>
+        </form>
+
         </div>
         <br />
 
@@ -61,8 +81,8 @@
             <div class="col-md-12 column list-group">
                 {% for order in orders %}
                 <div class="list-group-item">
-                    <div>Company Name {{ order.companyName }}</div>
-                    <div>Product: <strong>{{ order.customerAddress }}</strong></div>
+                    <div><strong>Company Name </strong>{{ order.companyName }}</div>
+                    <div><strong>Address: </strong>{{ order.customerAddress }}</div>
                     <div><strong>Orderes Item</strong> {{ order.ordereditem }}</div>
                     <div><strong>Price:</strong> {{ order.Price }}</div>
                     <div><strong>Currency:</strong> {{ order.Currency }}</div>

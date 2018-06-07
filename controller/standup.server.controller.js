@@ -11,6 +11,7 @@ exports.list = function(req, res) {
 }
 
 exports.filterByMember = function(req, res) {
+    console.log('filterByMember');
     var query = Standup.find();
     var filter = req.body.companyName;
 
@@ -21,11 +22,29 @@ exports.filterByMember = function(req, res) {
     }
 
     query.exec(function(err, results) {
-        console.log('when', results);
         res.render('index', {title: 'Standup - List' , orders : results})
     })
 
 }
+
+exports.filterByCustomerAddress = function(req, res) {
+    console.log('filterByCustomerAddress');
+    var query = Standup.find();
+    var filter = req.body.customerAddress;
+
+    query.sort({createdOn : 'desc'});
+
+    if(filter.length > 0) {
+        query.where({customerAddress: filter})
+    }
+
+    query.exec(function(err, results) {
+        res.render('index', {title: 'Standup - List Customer Address' , orders : results})
+    })
+
+}
+
+
 exports.create = function(req, res) {
     var entry = new Standup({
         companyName: req.body.companyName,
