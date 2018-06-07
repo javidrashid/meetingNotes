@@ -78,18 +78,37 @@
         <br />
 
         <div class="container">
-            <div class="col-md-12 column list-group">
+         
+            <table class="table table-hover">
+                <tr>
+                    <td><strong>Company Name </strong></td>
+                    <td><strong>Address: </strong></td>
+                    <td><strong>Orderes Item</strong></td>
+                    <td><strong>Price:</strong></td>
+                    <td><strong>Currency:</strong></td>
+                    <td><strong>Date Ordered:</strong></td>
+                    <td><strong>View Order</strong></td>
+                    <td><strong>Delete Order:</strong></td>
+                </tr>
                 {% for order in orders %}
-                <div class="list-group-item">
-                    <div><strong>Company Name </strong>{{ order.companyName }}</div>
-                    <div><strong>Address: </strong>{{ order.customerAddress }}</div>
-                    <div><strong>Orderes Item</strong> {{ order.ordereditem }}</div>
-                    <div><strong>Price:</strong> {{ order.Price }}</div>
-                    <div><strong>Currency:</strong> {{ order.Currency }}</div>
-                    <div><strong>Order Received On:</strong> {{ order.createdOn.toDateString() }}</div>
-                </div>
-                {% endfor %}
-            </div>
+                <tr>
+                    <td name="companyName">{{ order.companyName }}</td>
+                    <td name="customerAddress">{{ order.customerAddress }}</td>
+                    <td name="ordereditem"> {{ order.ordereditem }}</td>
+                    <td name="Price">{{ order.Price }}</td>
+                    <td name="Currency">{{ order.Currency }}</td>
+                    <td>{{ order.createdOn.toDateString() }}</td>
+                    <td><a href="/order/{{order.companyName}}" class="btn btn-info" type="submit">View</a></td>
+                    <td>
+                        <form action="/{{order.id}}" method="post" onsubmit="return confirm('Are you sure?')">
+                           <input type="hidden"  value="DELETE">
+                           <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>    
+                    </td>
+               </tr>
+                {% endfor %}   
+            </table>
+           
 
         </div>
     </div>

@@ -17,6 +17,14 @@ router.post('/address', function(req, res) {
   return standUpCtrl.filterByCustomerAddress(req, res)
 });
 
+router.get('/view-order/:id', function(req, res) {
+  return standUpCtrl.viewOrder(req, res);
+})
+
+//DELETE REQUEST
+router.post('/:id', function(req, res) {
+    //return standUpCtrl.deleteOrder(req, res);
+})
 /*GET A NEW NOTE PAGE*/
 router.get('/newnote', function(req, res) {
   return standUpCtrl.getNote(req, res);

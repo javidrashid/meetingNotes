@@ -11,7 +11,6 @@ exports.list = function(req, res) {
 }
 
 exports.filterByMember = function(req, res) {
-    console.log('filterByMember');
     var query = Standup.find();
     var filter = req.body.companyName;
 
@@ -67,9 +66,22 @@ exports.create = function(req, res) {
      });
      //redirect to homepage
 
-     //res.redirect(301, '/');
+     res.redirect(301, '/');
 };
 
 exports.getNote = function(req, res) {
     res.render('newnote', {title: 'Stand Up - New Note'})
+}
+
+exports.viewOrder = function(req, res) {
+    var query = Standup.findById(req.param.id);
+    query.exec(function(err, results) {
+        res.render('index', {title: 'Your Order111' , orders : results})
+    })
+    
+}
+
+exports.deleteOrder = function(req, res) {
+    //var query = Standup.find({id: req.body.id}).remove().exec();
+    res.render('index', {title: 'Deleted Order'})
 }
