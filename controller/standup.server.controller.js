@@ -72,9 +72,10 @@ exports.getNote = function(req, res) {
 }
 
 exports.viewOrder = function(req, res) {
+    console.log('inside view order');
     var query = Standup.findById(req.param.id);
     query.exec(function(err, results) {
-        res.render('index', {title: 'Your Order111' , orders : results})
+        res.render('allcompanies', {title: 'Your Order' , orders : results})
     })
     
 }
@@ -86,4 +87,8 @@ exports.deleteOrder = function(req, res) {
        
     });
     res.redirect('/');
+}
+
+exports.listAllCompanies = function(req, res) {
+    res.render('allcompanies', {title: 'All Companies'});
 }

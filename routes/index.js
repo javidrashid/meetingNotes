@@ -17,6 +17,10 @@ router.post('/address', function(req, res) {
   return standUpCtrl.filterByCustomerAddress(req, res)
 });
 
+router.get('/companies', function(req, res) {
+  return standUpCtrl.listAllCompanies(req, res);
+})
+
 
 /*GET A NEW NOTE PAGE*/
 router.get('/newnote', function(req, res) {
@@ -28,7 +32,8 @@ router.post('/newnote', function(req, res) {
   return standUpCtrl.create(req, res)
 })
 
-router.get('/view-order/:id', function(req, res) {
+router.get('/view-order/:companyName', function(req, res) {
+  console.log('Viewing order');
   return standUpCtrl.viewOrder(req, res);
 })
 

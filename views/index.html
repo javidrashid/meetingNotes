@@ -21,7 +21,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
                 <li><a href="/newnote">New Order</a></li>
-                <li><a href="/discuss">All Orders</a></li>
+                <li><a href="/companies">All Companies</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -98,7 +98,7 @@
                     <td name="Price">{{ order.Price }}</td>
                     <td name="Currency">{{ order.Currency }}</td>
                     <td>{{ order.createdOn.toDateString() }}</td>
-                    <td><a href="/order/{{order.companyName}}" class="btn btn-info" type="submit">View</a></td>
+                    <td><a href="/view-order/{{order.companyName}}" class="btn btn-info" type="submit">View</a></td>
                     <td>
                         <form action="/delete/{{order.id}}" method="post" onsubmit="return confirm('Are you sure?')">
                            <button type="submit" class="btn btn-danger">Delete</button>
