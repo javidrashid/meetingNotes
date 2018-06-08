@@ -100,8 +100,7 @@
                     <td>{{ order.createdOn.toDateString() }}</td>
                     <td><a href="/order/{{order.companyName}}" class="btn btn-info" type="submit">View</a></td>
                     <td>
-                        <form action="/{{order.id}}" method="post" onsubmit="return confirm('Are you sure?')">
-                           <input type="hidden"  value="DELETE">
+                        <form action="/delete/{{order.id}}" method="post" onsubmit="return confirm('Are you sure?')">
                            <button type="submit" class="btn btn-danger">Delete</button>
                         </form>    
                     </td>

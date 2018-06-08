@@ -61,7 +61,7 @@ exports.create = function(req, res) {
          else {
              console.log('NOted Saved Succesfully...', results);
              //redirect
-             res.redirect(301, '/')
+             res.redirect(200, '/')
          }
      });
      //redirect to homepage
@@ -70,10 +70,12 @@ exports.create = function(req, res) {
 };
 
 exports.getNote = function(req, res) {
+    console.log('Controller GetNOTE Called');
     res.render('newnote', {title: 'Stand Up - New Note'})
 }
 
 exports.viewOrder = function(req, res) {
+    console.log('Controller VIEW ORDER Called');
     var query = Standup.findById(req.param.id);
     query.exec(function(err, results) {
         res.render('index', {title: 'Your Order111' , orders : results})
@@ -82,6 +84,10 @@ exports.viewOrder = function(req, res) {
 }
 
 exports.deleteOrder = function(req, res) {
-    //var query = Standup.find({id: req.body.id}).remove().exec();
-    res.render('index', {title: 'Deleted Order'})
+    Standup.findOneAndRemove(req.param.id, {}, function(err, results) {
+        if (err) return res.status(500).send(err);
+        res.status(200);
+       
+    });
+    res.redirect('/');
 }
