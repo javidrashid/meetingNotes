@@ -40,8 +40,8 @@
         <div class="container">
             <!--Filter notes list by member name-->
             <form action="/member" method="post">
-                <div class="row clearfix">
-                    <div class="col-md-4 column">
+                <div class="row col-md-6">
+                    <div class="col-md-6 column">
                         <select id="companyName" name="companyName" class="form-control">
                             <option value="">Please Select</option>
                             <option value="SuperTrader">SuperTrader</option>
@@ -49,15 +49,15 @@
                             <option value="MegaCorp">MegaCorp</option>
                         </select>
                     </div>
-                    <div class="col-md-8 column">
+                    <div class="col-md-6 column">
                         <!-- Button -->
                         <button id="btnFilterNotes" name="btnFilterNotes" class="btn btn-primary" type="submit">Filter Orders by Compnay Name</button>
                     </div>
                 </div>
             </form>
             <form action="/address" method="post">
-            <div class="row clearfix">
-                <div class="col-md-4 column">
+            <div class="row col-md-6">
+                <div class="col-md-6 column">
                     <select id="customerAddress" name="customerAddress" class="form-control">
                         <option value="">Please Select</option>
                         <option value="Steindamm 80">Steindamm 80</option>
@@ -67,7 +67,7 @@
                         <option value="Lagerstrasse 11">Lagerstrasse 11</option> 
                     </select>
                 </div>
-                <div class="col-md-8 column">
+                <div class="col-md-6 column">
                     <!-- Button -->
                     <button id="btnFilterNotes" name="btnFilterNotes" class="btn btn-primary" type="submit">Filter Orders by Customer Address</button>
                 </div>

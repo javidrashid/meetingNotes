@@ -27,7 +27,6 @@ exports.filterByMember = function(req, res) {
 }
 
 exports.filterByCustomerAddress = function(req, res) {
-    console.log('filterByCustomerAddress');
     var query = Standup.find();
     var filter = req.body.customerAddress;
 
@@ -59,23 +58,20 @@ exports.create = function(req, res) {
              res.render('newnote', {title: 'Standup - New Note (error)', message: errMsg})    
          }
          else {
-             console.log('NOted Saved Succesfully...', results);
              //redirect
-             res.redirect(200, '/')
+             res.redirect(301, '/')
          }
      });
      //redirect to homepage
 
-     res.redirect(301, '/');
+     //res.redirect(301, '/');
 };
 
 exports.getNote = function(req, res) {
-    console.log('Controller GetNOTE Called');
     res.render('newnote', {title: 'Stand Up - New Note'})
 }
 
 exports.viewOrder = function(req, res) {
-    console.log('Controller VIEW ORDER Called');
     var query = Standup.findById(req.param.id);
     query.exec(function(err, results) {
         res.render('index', {title: 'Your Order111' , orders : results})
