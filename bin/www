@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('meetingnotes:server');
+var debug = require('debug')('borderguruorderingapp:server');
 var http = require('http');
 
 /**

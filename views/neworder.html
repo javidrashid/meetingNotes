@@ -38,7 +38,7 @@
                 {{ message }}
             </div>
     {% endif %}
-    <form class="form-horizontal" action="newnote" method="post">
+    <form class="form-horizontal" action="neworder" method="post">
         <fieldset>
 
             <!-- Form Name -->
@@ -62,7 +62,7 @@
                 <label class="col-md-4 control-label" for="customerAddress">Customer Address</label>
                 <div class="col-md-4">
                     <select id="customerAddress" name="customerAddress" class="form-control">
-                        <option>(Select Address)</option>
+                        <option value="">(Select Address)</option>
                         <option value="Steindamm 80">Steindamm 80</option>
                         <option value="Reeperbahn 153">Reeperbahn 153</option>
                         <option value="Sternstrasse 145">Sternstrasse 145</option>
@@ -108,9 +108,9 @@
 
             <!-- Button -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="btnSaveNote">Save Order</label>
+                <label class="col-md-4 control-label" for="btnSaveOrder">Save Order</label>
                 <div class="col-md-4">
-                    <button id="btnSaveNote" name="btnSaveNote" class="btn btn-primary" type="submit">Save</button>
+                    <button id="btnSaveOrder" name="btnSaveOrder" class="btn btn-primary" type="submit">Save</button>
                 </div>
             </div>
 

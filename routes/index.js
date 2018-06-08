@@ -22,24 +22,22 @@ router.get('/companies', function(req, res) {
 })
 
 
-/*GET A NEW NOTE PAGE*/
+/*GET A NEW ORDER PAGE*/
 router.get('/neworder', function(req, res) {
-  return standUpCtrl.getNote(req, res);
+  return standUpCtrl.getOrder(req, res);
 })
 
-/*POST A NEW NOTE PAGE*/
+/*POST A NEW ORDER PAGE*/
 router.post('/neworder', function(req, res) {
   return standUpCtrl.create(req, res)
 })
 
 router.get('/view-order/:companyName', function(req, res) {
-  console.log('Viewing order');
   return standUpCtrl.viewOrder(req, res);
 })
 
 //DELETE REQUEST
 router.post('/delete/:id', function(req, res) {
-  console.log('Delete Router Invoked...');
   return standUpCtrl.deleteOrder(req, res);
 })
 module.exports = router;

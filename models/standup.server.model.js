@@ -1,43 +1,43 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var memberNameValidator = [
+var dropdownValidator = [
     function(val) {
-        return (val.length > 0 && val.toLowerCase() != 'none')
+        return (val.length > 0 && val.toLowerCase() != '')
     },
     //Customer Error Text
-    'Select a valid member name'
+    'Select a valid company'
 ]
 
 var requiredStringValidator = [
     function(val) {
-        var testVal = val.trim();
-        return (testVal.length > 0)
+       var testVal = typeof val;
+        return (testVal !== Number)
     },
     //Custom error text
     '{PATH} cannot be empty'
 ];
-var standupSchema = new Schema({
+var borderguruOrderSchema = new Schema({
     companyName: {type: String,
                 required: true,
-                validate: memberNameValidator },
+                validate: dropdownValidator },
 
-    customerAddress:    {type: String,
+    customerAddress:{type: String,
                 required: true,
-                validate : requiredStringValidator },
+                validate : dropdownValidator },
 
     ordereditem:  {type: String,
                 required: false,
-                validate : requiredStringValidator },
+                validate :  dropdownValidator},
 
-    Price: {type: String,
-                required: false,
-                validate : requiredStringValidator },
+    Price: {type: Number,
+                required: true,
+                validate :  requiredStringValidator },
 
     Currency : {type: String,
                 required: false,
                 default :'none' },
-                 createdOn : {type: Date, default: Date.now}
+    createdOn : {type: Date, default: Date.now}
 });
 
-module.exports = mongoose.model('Standup', standupSchema)
+module.exports = mongoose.model('Standup', borderguruOrderSchema)

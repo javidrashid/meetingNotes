@@ -12,7 +12,7 @@ var swig = require('swig');
 //Mongoose Connection
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/meetingNotes');
+mongoose.connect('mongodb://localhost/borderguruOrders');
 
 var app = express();
 

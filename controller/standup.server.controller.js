@@ -54,8 +54,8 @@ exports.create = function(req, res) {
 
      entry.save(function(err, results) {
          if(err) {
-             var errMsg = 'Sorry but there was an error saving a note,' + err;
-             res.render('neworder', {title: 'BorderGuruOrders - New Note (error)', message: errMsg})    
+             var errMsg = 'Sorry but there was an error saving your order,' + err;
+             res.render('neworder', {title: 'BorderGuruOrders - New Order (error)', message: errMsg})    
          }
          else {
              //redirect
@@ -67,12 +67,11 @@ exports.create = function(req, res) {
      //res.redirect(301, '/');
 };
 
-exports.getNote = function(req, res) {
-    res.render('neworder', {title: 'Stand Up - New Note'})
+exports.getOrder = function(req, res) {
+    res.render('neworder', {title: 'BorderGuru - New Order'})
 }
 
 exports.viewOrder = function(req, res) {
-    console.log('inside view order');
     var query = BorderGuruOrders.findById(req.param.id);
     query.exec(function(err, results) {
         res.render('allcompanies', {title: 'Your Order' , orders : results})

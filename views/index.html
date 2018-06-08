@@ -42,7 +42,7 @@
                 <div class="row col-md-6">
                     <div class="col-md-6 column">
                         <select id="companyName" name="companyName" class="form-control">
-                            <option value="">Please Select</option>
+                            <option>Please Select</option>
                             <option value="SuperTrader">SuperTrader</option>
                             <option value="Cheapskates">Cheapskates</option>
                             <option value="MegaCorp">MegaCorp</option>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-md-6 column">
                         <!-- Button -->
-                        <button id="btnFilterNotes" name="btnFilterNotes" class="btn btn-primary" type="submit">Filter Orders by Company Name</button>
+                        <button id="btnFilterOrders" name="btnFilterOrders" class="btn btn-primary" type="submit">Filter Orders by Company Name</button>
                     </div>
                 </div>
             </form>
@@ -58,7 +58,7 @@
             <div class="row col-md-6">
                 <div class="col-md-6 column">
                     <select id="customerAddress" name="customerAddress" class="form-control">
-                        <option value="">Please Select</option>
+                        <option>Please Select</option>
                         <option value="Steindamm 80">Steindamm 80</option>
                         <option value="Reeperbahn 153">Reeperbahn 153</option>
                         <option value="Sternstrasse 125">Sternstrasse 125</option>
@@ -68,7 +68,7 @@
                 </div>
                 <div class="col-md-6 column">
                     <!-- Button -->
-                    <button id="btnFilterNotes" name="btnFilterNotes" class="btn btn-primary" type="submit">Filter Orders by Customer Address</button>
+                    <button id="btnFilterOrders" name="btnFilterOrders" class="btn btn-primary" type="submit">Filter Orders by Customer Address</button>
                 </div>
             </div>
         </form>
@@ -99,7 +99,7 @@
                     <td>{{ order.createdOn.toDateString() }}</td>
                     <td><a href="/view-order/{{order.companyName}}" class="btn btn-info" type="submit">View</a></td>
                     <td>
-                        <form action="/delete/{{order.id}}" method="post" onsubmit="return confirm('Are you sure?')">
+                        <form action="/delete/{{order.id}}" method="post" onsubmit="return confirm('Are you sure you want to delete this order?')">
                            <button type="submit" class="btn btn-danger">Delete</button>
                         </form>    
                     </td>
