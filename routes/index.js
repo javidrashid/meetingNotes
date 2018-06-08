@@ -23,12 +23,12 @@ router.get('/companies', function(req, res) {
 
 
 /*GET A NEW NOTE PAGE*/
-router.get('/newnote', function(req, res) {
+router.get('/neworder', function(req, res) {
   return standUpCtrl.getNote(req, res);
 })
 
 /*POST A NEW NOTE PAGE*/
-router.post('/newnote', function(req, res) {
+router.post('/neworder', function(req, res) {
   return standUpCtrl.create(req, res)
 })
 
